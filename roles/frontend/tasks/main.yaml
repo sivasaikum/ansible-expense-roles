@@ -34,9 +34,5 @@
   ansible.builtin.template:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
-
-- name: restart and enable nginx
-  ansible.builtin.service:
-    enabled: yes
-    state: restarted
-    name: nginx
+  notify:
+  - restart and enable nginx
